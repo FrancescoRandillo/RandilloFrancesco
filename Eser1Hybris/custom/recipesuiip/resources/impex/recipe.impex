@@ -1,0 +1,51 @@
+$lang=it
+INSERT_UPDATE Autore ;id[unique=true];riferimento
+					;1;rubio;
+					;2;antonino;
+					;3;ramsey;
+					;4;mamma;
+					
+INSERT_UPDATE Ingrediente ;id[unique=true];nome[lang=$lang]
+						;1;pomodoro;
+						;2;patata;
+						;3;uova;
+						;4;sale;
+						;5;pepe;
+						;6;latte;
+						;7;farina;
+						;8;melanzana
+							
+INSERT_UPDATE Tool ;id[unique=true];nome[lang=$lang]
+					;1;forno;
+					;2;micro-onde;
+					;3;frullatore;
+					;4;freezer;
+					
+INSERT_UPDATE Ricetta ;id[unique=true];nome[lang=$lang];descrizione;procedimento[default='prepara tutto cotto e mangiato'];kcal;tempTot;autore(id)
+					;1;carbonara;piatto alla carbonara;;300;1h;1;
+					;2;puttanesca;piatto alla puttanesca;;500;1h30m;2;
+					;3;parmigiana;parmigiana di melanzane;;500;2h;3;
+					;4;lasagna;lasagne emiliane;;800;3h;2;
+                    
+INSERT_UPDATE Ricetta2ToolRelation ;source(id)[unique=true];target(id)[unique=true]
+							;1;1;
+							;1;2;
+							;2;1;
+							;2;4;
+							;3;3;
+							;3;4;
+							;4;1;
+							;4;4;
+					
+INSERT_UPDATE RecipeEntry ;id[unique=true];quantita;ingrediente(id);ricetta(id)
+							;1;2;1;1;
+							;2;3;2;2;
+							;3;1;1;1;
+							;4;2;3;1;
+							;5;60;4;4;
+							;5;100;6;4;
+							;6;4;8;4;
+							
+
+
+						
