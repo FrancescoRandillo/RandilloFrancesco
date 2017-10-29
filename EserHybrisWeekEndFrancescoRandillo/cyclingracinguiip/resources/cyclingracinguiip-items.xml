@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- ~ [y] hybris Platform ~ ~ Copyright (c) 2000-2016 SAP SE ~ All rights 
+	reserved. ~ ~ This software is the confidential and proprietary information 
+	of SAP ~ Hybris ("Confidential Information"). You shall not disclose such 
+	~ Confidential Information and shall use it only in accordance with the ~ 
+	terms of the license agreement you entered into with SAP Hybris. -->
+<!-- ATTENTION: This is just an example file. You have to edit it according 
+	to your needs. -->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="items.xsd">
+	<enumtypes>
+		<enumtype code="OnTrialEnum" autocreate="true" generate="true"
+			dynamic="true">
+			<value code="YES"></value>
+			<value code="NO"></value>
+		</enumtype>
+		<enumtype code="StateEnum" autocreate="true" generate="true"
+			dynamic="true">
+			<value code="RETIRED"></value>
+			<value code="NOTRETIRED"></value>
+		</enumtype>
+	</enumtypes>
+
+	<relations>
+		<!-- Reletion Cyclist Stage Ranking 1-n -->
+		<relation code="Cyclist2StageRankingRelation" generate="true"
+			localized="false">
+			<sourceElement type="Cyclist" qualifier="cyclist"
+				cardinality="one" />
+			<targetElement type="StageRanking" qualifier="stageRankings"
+				cardinality="many" />
+		</relation>
+		<!-- Relation StageRace Stage 1-n -->
+		<relation code="StageRace2StageRelational" autocreate="true"
+			generate="true" localized="false">
+			<sourceElement qualifier="stagerace" type="StageRace"
+				cardinality="one" />
+			<targetElement qualifier="stages" type="Stage"
+				cardinality="many" />
+		</relation>
+		<!-- Relation Stagerace CyclistRanking 1-n -->
+		<relation code="StageRace2CyclingRankingRelational"
+			autocreate="true" generate="true" localized="false">
+			<sourceElement qualifier="stagerace" type="StageRace"
+				cardinality="one" />
+			<targetElement qualifier="cyclistrankings" type="CyclistRanking"
+				cardinality="many" />
+		</relation>
+
+	</relations>
+
+
+	<itemtypes>
+		<!-- Item Type Stage Race -->
+		<itemtype code="stageRace" autocreate="true" generate="true">
+			<deployment table="StageRace" typecode="12001" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property"></persistence>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Cyclist -->
+		<itemtype code="cyclist" autocreate="true" generate="true">
+			<deployment table="Cyclist" typecode="12002" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="surname">
+					<persistence type="property"></persistence>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Stage -->
+		<itemtype code="stage" autocreate="true" generate="true">
+			<deployment table="Stage" typecode="12003" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="nameStage">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.util.Date" qualifier="dateStage">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="OnTrialEnum" qualifier="onTrial">
+					<persistence type="property"></persistence>
+					<description>If the stage is on trial or not</description>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Stage Ranking -->
+		<itemtype code="stageRanking" autocreate="true" generate="true">
+			<deployment table="StageRanking" typecode="12008" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="racing">
+					<persistence type="property"></persistence>
+					<description>cyclist position
+					</description>
+				</attribute>
+				<attribute type="java.lang.Integer" qualifier="time">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="StateEnum" qualifier="state">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="Stage" qualifier="stage">
+					<persistence type="property"></persistence>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type CyclistRanking -->
+		<itemtype code="cyclistRanking" autocreate="true" generate="true">
+			<deployment table="CyclistRanking" typecode="12010" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.String" qualifier="totRacing">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="java.lang.Integer" qualifier="totTime">
+					<persistence type="property"></persistence>
+				</attribute>
+				<attribute type="Cyclist" qualifier="cyclist">
+					<persistence type="property"></persistence>
+				</attribute>
+			</attributes>
+		</itemtype>
+	</itemtypes>
+</items>

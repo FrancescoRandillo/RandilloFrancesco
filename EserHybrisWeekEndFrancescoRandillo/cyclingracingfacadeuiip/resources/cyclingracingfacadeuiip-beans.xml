@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="beans.xsd">
+	<!-- Bean stage data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageData">
+		<property name="id" type="java.lang.String" />
+		<property name="nameStage" type="java.lang.String" />
+		<property name="dateStage" type="java.util.Date" />
+		<property name="onTrial" type="java.lang.String"></property>
+	</bean>
+	<!-- Bean Stage Race Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageRaceData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String"></property>
+	</bean>
+	<!-- Bean Stage Ranking Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageRankingData">
+		<property name="id" type="java.lang.String" />
+		<property name="racing" type="java.lang.String" />
+		<property name="time" type="java.lang.Integer" />
+		<property name="state" type="java.lang.String" />
+		<property name="stage" type="my.cyclingracingfacadeuiip.data.StageData" />
+	</bean>
+	<!-- Bean Cyclist Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.CyclistData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String" />
+		<property name="surname" type="java.lang.String" />
+	</bean>
+	<!-- Bean Cyclist Ranking Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.CyclistRankingData">
+		<property name="id" type="java.lang.String" />
+		<property name="totRacing" type="java.lang.String" />
+		<property name="totTime" type="java.lang.Integer" />
+		<property name="cyclist" type="my.cyclingracingfacadeuiip.data.CyclistData" />
+	</bean>
+</beans>
