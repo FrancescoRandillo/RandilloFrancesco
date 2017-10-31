@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ [y] hybris Platform ~ ~ Copyright (c) 2000-2016 SAP SE ~ All rights 
+	reserved. ~ ~ This software is the confidential and proprietary information 
+	of SAP ~ Hybris ("Confidential Information"). You shall not disclose such 
+	~ Confidential Information and shall use it only in accordance with the ~ 
+	terms of the license agreement you entered into with SAP Hybris. -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- DAO -->
+	<!-- Bean StageRanking Dao -->
+	<bean id="stageRankingDao"
+		class="my.cyclingracinguiip.stageranking.dao.impl.DefaultStageRankingDao"
+		parent="abstractItemDao" />
+	<!-- Bean Cyclist Dao -->
+	<bean id="cyclistDao" class="my.cyclingracinguiip.cyclist.dao.impl.DefaultCyclistDao"
+		parent="abstractItemDao" />
+	<!-- Bean CyclistRanking Dao -->
+	<bean id="cyclistRankingDao"
+		class="my.cyclingracinguiip.cyclistranking.dao.impl.DefaultCyclistRankingDao"
+		parent="abstractItemDao" />
+	<!-- Bean Stage Dao -->
+	<bean id="stageDao" class="my.cyclingracinguiip.stage.dao.impl.DefaultStageDao"
+		parent="abstractItemDao" />
+	<!-- SERVICE -->
+	<!-- Bean Stage Service -->
+	<bean id="stageService"
+		class="my.cyclingracinguiip.stage.service.impl.DefaultStageService">
+		<property name="stageDao" ref="stageDao"></property>
+	</bean>
+	<!-- Bean StageRanking Service -->
+	<bean id="stageRankingService"
+		class="my.cyclingracinguiip.stageranking.service.impl.DefaultStageRankingService">
+		<property name="stageRankingDao" ref="stageRankingDao"></property>
+	</bean>
+	<!-- Bean Cyclist Service -->
+	<bean id="cyclistService"
+		class="my.cyclingracinguiip.cyclist.service.impl.DefaultCyclistService">
+		<property name="cyclistDao" ref="cyclistDao"></property>
+	</bean>
+	<!-- Bean CyclistRanking Service -->
+	<bean id="cyclistRankingService"
+		class="my.cyclingracinguiip.cyclistranking.service.impl.DefaultCyclistRankingService">
+		<property name="cyclistRankingDao" ref="cyclistRankingDao"></property>
+	</bean>
+
+	<!-- Bean Stage Interceptor -->
+	<bean id="myStageInitInterceptor"
+		class="my.cyclingracinguiip.stage.interceptor.MyStageInitInterceptor">
+	</bean>
+	<!-- Mapping Stage Interceptor -->
+	<bean id="myStageInitMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="myStageInitInterceptor"></property>
+		<property name="typeCode" value="Stage"></property>
+	</bean>
+	<!-- Bean StageRace Interceptor -->
+	<bean id="myStageRaceInterceptor"
+		class="my.cyclingracinguiip.stagerace.interceptor.MyStageRaceInterceptor">
+		<property name="stageService" ref="stageService"></property>
+	</bean>
+	<!-- Mapping StageRace Interceptor -->
+	<bean id="myStageRaceMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="myStageRaceInterceptor"></property>
+		<property name="typeCode" value="StageRace"></property>
+	</bean>
+	<!-- Cronjob Bean -->
+	<bean id="myJob" class="my.cyclingracinguiip.cronjob.UpdateCyclistRankingJob"
+		parent="abstractJobPerformable">
+		<property name="stageService" ref="stageService" />
+		<property name="stageRankingService" ref="stageRankingService" />
+		<property name="cyclistRankingService" ref="cyclistRankingService" />
+		<property name="cyclistService" ref="cyclistService" />
+	</bean>
+
+	<!-- Handler age Bean -->
+	<bean id="ageHandler" class="my.cyclingracinguiip.handler.AgeHandler"
+		scope="tenant" />
+		
+	
+
+
+
+
+
+	<bean id="cyclingracinguiipSystemSetup" class="my.cyclingracinguiip.setup.CyclingracinguiipSystemSetup">
+		<!-- constructor arg injection example -->
+		<constructor-arg ref="cyclingracinguiipService" />
+	</bean>
+
+
+	<bean id="cyclingracinguiipService"
+		class="my.cyclingracinguiip.service.impl.DefaultCyclingracinguiipService">
+		<!-- setter injection example -->
+		<property name="modelService" ref="modelService" />
+		<property name="mediaService" ref="mediaService" />
+		<property name="flexibleSearchService" ref="flexibleSearchService" />
+	</bean>
+
+</beans>
