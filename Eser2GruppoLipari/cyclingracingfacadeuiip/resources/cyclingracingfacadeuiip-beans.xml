@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="beans.xsd">
+	<!-- Bean Cyclist Team Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.CyclistTeamData">
+		<property name="id" type="java.lang.String" />
+		<property name="year" type="java.util.Date" />
+		<property name="country" type="java.lang.String" />
+		<property name="bicycle" type="java.lang.String" />
+		<property name="manager" type="my.cyclingracingfacadeuiip.data.ManagerData"/>
+	</bean>
+	<!-- Bean stage data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageData">
+		<property name="id" type="java.lang.String" />
+		<property name="nameStage" type="java.lang.String" />
+		<property name="startDateStage" type="java.util.Date" />
+		<property name="endDateStage" type="java.util.Date" />
+		<property name="days" type="java.lang.Integer" />
+	</bean>
+	<!-- Bean Stage Race Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageRaceData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String"></property>
+		<property name="closingDate" type="java.util.Date"></property>
+	</bean>
+	<!-- Bean Stage Ranking Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.StageRankingData">
+		<property name="id" type="java.lang.String" />
+		<property name="ranking" type="java.lang.String" />
+		<property name="time" type="java.lang.Integer" />
+		<property name="state" type="java.lang.String" />
+		<property name="cyclist" type="my.cyclingracingfacadeuiip.data.CyclistData" />
+		<property name="stage" type="my.cyclingracingfacadeuiip.data.StageData"></property>
+	</bean>
+	<!-- Bean Person Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.PersonData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String" />
+		<property name="surname" type="java.lang.String" />
+		<property name="dateOfBirth" type="java.util.Date" />
+	</bean>
+	<!-- Bean Cyclist Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.CyclistData" extends="my.cyclingracingfacadeuiip.data.PersonData">
+		<property name="age" type="java.lang.Integer" />
+		<property name="weight" type="java.lang.Integer" />
+		<property name="height" type="java.lang.Integer" />
+
+	</bean>
+	<!-- Bean Manager Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.ManagerData" extends="my.cyclingracingfacadeuiip.data.PersonData">
+	</bean>
+
+	<!-- Bean Cyclist Ranking Data -->
+	<bean class="my.cyclingracingfacadeuiip.data.CyclistRankingData">
+		<property name="id" type="java.lang.String" />
+		<property name="totRanking" type="java.lang.String" />
+		<property name="totTime" type="java.lang.Integer" />
+		<property name="cyclist" type="my.cyclingracingfacadeuiip.data.CyclistData" />
+		<property name="stageRace"
+			type="my.cyclingracingfacadeuiip.data.StageRaceData" />
+	</bean>
+</beans>

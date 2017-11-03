@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- Bean Populator -->
+	<!-- CYCLIST -->
+	<alias name="defaultCyclistConverter" alias="cyclistConverter" />
+	<bean id="defaultCyclistConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.cyclingracingfacadeuiip.data.CyclistData" />
+		<property name="populators">
+			<list>
+				<ref bean="cyclistPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultCyclistPopulator" alias="cyclistPopulator" />
+	<bean id="defaultCyclistPopulator"
+		class="my.cyclingracingfacadeuiip.cyclist.populator.CyclistPopulator">
+	</bean>
+	<!-- MANAGER -->
+	<alias name="defaultManagerConverter" alias="managerConverter" />
+	<bean id="defaultManagerConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.cyclingracingfacadeuiip.data.ManagerData" />
+		<property name="populators">
+			<list>
+				<ref bean="managerPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultManagerPopulator" alias="managerPopulator" />
+	<bean id="defaultManagerPopulator"
+		class="my.cyclingracingfacadeuiip.manager.populator.ManagerPopulator">
+	</bean>
+	<!-- CYCLIST TEAM -->
+	<alias name="defaultCyclistTeamConverter" alias="cyclistTeamConverter" />
+	<bean id="defaultCyclistTeamConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+			value="my.cyclingracingfacadeuiip.data.CyclistTeamData" />
+		<property name="populators">
+			<list>
+				<ref bean="cyclistTeamPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultCyclistTeamPopulator" alias="cyclistTeamPopulator" />
+	<bean id="defaultCyclistTeamPopulator"
+		class="my.cyclingracingfacadeuiip.cyclistteam.populator.CyclistTeamPopulator">
+		<property name="managerConverter" ref="managerConverter"></property>
+
+	</bean>
+	<!-- FACADE -->
+	<bean name="defaultCyclistTeamFacade"
+		class="my.cyclingracingfacadeuiip.cyclistteam.facade.impl.DefaultCyclistTeamFacade">
+		<property name="cyclistTeamService" ref="cyclistTeamService" />
+		<property name="cyclistTeamConverter" ref="cyclistTeamConverter" />
+		<property name="cyclistConverter" ref="cyclistConverter" />
+		<property name="managerConverter" ref="managerConverter"></property>
+	</bean>
+
+
+
+	<bean id="cyclingracingfacadeuiipSystemSetup"
+		class="my.cyclingracingfacadeuiip.setup.CyclingracingfacadeuiipSystemSetup">
+		<!-- constructor arg injection example -->
+		<constructor-arg ref="cyclingracingfacadeuiipService" />
+	</bean>
+
+	<bean id="cyclingracingfacadeuiipService"
+		class="my.cyclingracingfacadeuiip.service.impl.DefaultCyclingracingfacadeuiipService">
+		<!-- setter injection example -->
+		<property name="modelService" ref="modelService" />
+		<property name="mediaService" ref="mediaService" />
+		<property name="flexibleSearchService" ref="flexibleSearchService" />
+	</bean>
+
+</beans>
