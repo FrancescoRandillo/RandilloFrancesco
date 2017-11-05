@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+	<!-- BEAN POPULATOR -->
+	<!--DEPARTMENT -->
+	<alias name="defaultDepartmentConverter" alias="departmentConverter" />
+	<bean id="defaultDepartmentConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.hospitaluiipfacade.data.DepartmentData" />
+		<property name="populators">
+			<list>
+				<ref bean="departmentPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultDepartmentPopulator" alias="departmentPopulator" />
+	<bean id="defaultDepartmentPopulator"
+		class="my.hospitaluiipfacade.department.populator.DepartmentPopulator">
+	</bean>
+	<!-- DOCTOR -->
+	<alias name="defaultDoctorConverter" alias="doctorConverter" />
+	<bean id="defaultDoctorConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.hospitaluiipfacade.data.DoctorData" />
+		<property name="populators">
+			<list>
+				<ref bean="doctorPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultDoctorPopulator" alias="doctorPopulator" />
+	<bean id="defaultDoctorPopulator" class="my.hospitaluiipfacade.doctor.populator.DoctorPopulator">
+		<property name="departmentConverter" ref="departmentConverter"></property>
+	</bean>
+	<!-- PATIENT -->
+	<alias name="defaultPatientConverter" alias="patientConverter" />
+	<bean id="defaultPatientConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.hospitaluiipfacade.data.PatientData" />
+		<property name="populators">
+			<list>
+				<ref bean="patientPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultPatientPopulator" alias="patientPopulator" />
+	<bean id="defaultPatientPopulator"
+		class="my.hospitaluiipfacade.patient.populator.PatientPopulator">
+	</bean>
+	<!-- VISIT -->
+	<alias name="defaultVisitConverter" alias="visitConverter" />
+	<bean id="defaultVisitConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="my.hospitaluiipfacade.data.VisitData" />
+		<property name="populators">
+			<list>
+				<ref bean="visitPopulator" />
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultVisitPopulator" alias="visitPopulator" />
+	<bean id="defaultVisitPopulator" class="my.hospitaluiipfacade.visit.populator.VisitPopulator">
+		<property name="departmentConverter" ref="departmentConverter" />
+		<property name="doctorConverter" ref="doctorConverter" />
+		<property name="patientConverter" ref="patientConverter" />
+	</bean>
+
+	<!-- FACADE -->
+	<bean name="defaultVisitFacade"
+		class="my.hospitaluiipfacade.visit.facade.impl.DefaultVisitfFacade">
+		<property name="visitService" ref="visitService" />
+		<property name="visitConverter" ref="visitConverter" />
+
+	</bean>
+
+
+
+
+
+	<bean id="hospitaluiipfacadeSystemSetup"
+		class="my.hospitaluiipfacade.setup.HospitaluiipfacadeSystemSetup">
+		<!-- constructor arg injection example -->
+		<constructor-arg ref="hospitaluiipfacadeService" />
+	</bean>
+
+	<bean id="hospitaluiipfacadeService"
+		class="my.hospitaluiipfacade.service.impl.DefaultHospitaluiipfacadeService">
+		<!-- setter injection example -->
+		<property name="modelService" ref="modelService" />
+		<property name="mediaService" ref="mediaService" />
+		<property name="flexibleSearchService" ref="flexibleSearchService" />
+	</bean>
+
+</beans>

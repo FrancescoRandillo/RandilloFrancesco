@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<!-- ENUMTYPES________________________________________________________________ -->
+	<enumtypes>
+		<enumtype code="GenderEnum" autocreate="true" generate="true"
+			dynamic="true">
+			<value code="M" />
+			<value code="F" />
+		</enumtype>
+		<enumtype code="Result" autocreate="true" generate="true"
+			dynamic="true">
+			<value code="POSITIVE" />
+			<value code="NEGATIVE" />
+		</enumtype>
+	</enumtypes>
+
+	<!-- RELATIONS__________________________________________________________________ -->
+	<!-- Relation 1 -n Department Doctor -->
+	<relations>
+		<relation localized="false" code="Department2DoctorRelation">
+			<sourceElement type="Department" qualifier="department"
+				cardinality="one" />
+			<targetElement type="Doctor" qualifier="doctors"
+				cardinality="many" />
+		</relation>
+		<!-- Relation 1-n Department Visit -->
+		<relation localized="false" code="Departed2VisitRelation">
+			<sourceElement type="Department" qualifier="department"
+				cardinality="one" />
+			<targetElement type="Visit" qualifier="visits"
+				cardinality="many" />
+		</relation>
+		<!-- Relation 1-m Patient Visit -->
+		<relation localized="false" code="Patient2VisitRelation">
+			<sourceElement type="Patient" qualifier="patient"
+				cardinality="one" />
+			<targetElement type="Visit" qualifier="visits"
+				cardinality="many" />
+		</relation>
+
+	</relations>
+
+	<!-- ITEMTYPES__________________________________________________________________ -->
+	<itemtypes>
+		<!-- ItemType HPerson -->
+		<itemtype code="HPerson" autocreate="true" generate="true">
+			<deployment table="HPerson" typecode="19401" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="surname">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="cf">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="GenderEnum" qualifier="gender">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.util.Date" qualifier="dateOfBirth">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="birthPlace">
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Patient -->
+		<itemtype code="Patient" autocreate="true" generate="true"
+			extends="HPerson">
+			<deployment table="Patient" typecode="19402" />
+			<attributes>
+				<attribute type="java.util.Date" qualifier="admissionDate">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.util.Date" qualifier="exitDate">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.Integer" qualifier="totDays">
+					<persistence type="dynamic" attributeHandler="daysHandler" />
+					<modifiers write="false" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Doctor -->
+		<itemtype code="Doctor" autocreate="true" generate="true"
+			extends="HPerson">
+			<deployment table="Doctor" typecode="19403" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="registrationNumber">
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Department -->
+		<itemtype code="Department" autocreate="true" generate="true">
+			<deployment table="Department" typecode="19404" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<!-- Item Type Visit -->
+		<itemtype code="Visit" autocreate="true" generate="true">
+			<deployment table="Visit" typecode="19405" />
+			<attributes>
+				<attribute type="java.lang.String" qualifier="id">
+					<modifiers optional="false" unique="true" />
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.util.Date" qualifier="date">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="Result" qualifier="result">
+					<persistence type="property" />
+				</attribute>
+				<attribute type="Doctor" qualifier="doctor">
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+	</itemtypes>
+</items>

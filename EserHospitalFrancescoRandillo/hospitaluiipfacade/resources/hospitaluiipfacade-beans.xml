@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="beans.xsd">
+	<!-- HPERSON DATA -->
+	<bean class="my.hospitaluiipfacade.data.HPersonData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String" />
+		<property name="surname" type="java.lang.String" />
+		<property name="cf" type="java.lang.String" />
+		<property name="gender" type="java.lang.String" />
+		<property name="birthPlace" type="java.lang.String" />
+		<property name="dateOfBirth" type="java.util.Date" />
+	</bean>
+
+	<!-- DOCTOR DATA -->
+	<bean class="my.hospitaluiipfacade.data.DoctorData" extends="my.hospitaluiipfacade.data.HPersonData">
+		<property name="registrationNumber" type="java.lang.String" />
+		<property name="visits"
+			type="java.util.List&lt;my.hospitaluiipfacade.data.VisitData>" />
+		<property name="department" type="my.hospitaluiipfacade.data.DepartmentData"/>
+	</bean>
+	<!-- DEPARTMENT DATA -->
+	<bean class="my.hospitaluiipfacade.data.DepartmentData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String" />
+		<property name="doctors"
+			type="java.util.List&lt;my.hospitaluiipfacade.data.DoctorData>" />
+		<property name="visits"
+			type="java.util.List&lt;my.hospitaluiipfacade.data.VisitData>" />
+	</bean>
+	<!-- VISIT DATA -->
+	<bean class="my.hospitaluiipfacade.data.VisitData">
+		<property name="id" type="java.lang.String" />
+		<property name="name" type="java.lang.String" />
+		<property name="result" type="java.lang.String" />
+		<property name="date" type="java.util.Date" />
+		<property name="doctor" type="my.hospitaluiipfacade.data.DoctorData" />
+		<property name="patient" type="my.hospitaluiipfacade.data.PatientData"/>
+		<property name="department" type="my.hospitaluiipfacade.data.DepartmentData"/>
+	</bean>
+	<!-- PATIENT DATA -->
+	<bean class="my.hospitaluiipfacade.data.PatientData" extends="my.hospitaluiipfacade.data.HPersonData">
+		<property name="admissionDate" type="java.util.Date" />
+		<property name="exitDate" type="java.util.Date" />
+		<property name="totDays" type="java.lang.Integer" />
+		<property name="visits"
+			type="java.util.List&lt;my.hospitaluiipfacade.data.VisitData>" />
+	</bean>
+</beans>

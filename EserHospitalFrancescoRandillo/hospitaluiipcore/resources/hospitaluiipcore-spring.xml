@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- Bean Days Handler ______________________________________________ -->
+	<bean id="daysHandler" class="my.hospitaluiipcore.handler.DaysHandler"
+		scope="tenant" />
+	<!-- VISIT DAO _______________________________________________ -->
+	<bean id="visitDao" class="my.hospitaluiipcore.visit.dao.impl.DefaultVisitDao"
+		parent="abstractItemDao"></bean>
+	<!-- VISIT SERVICE ________________________________________________ -->
+	<bean id="visitService"
+		class="my.hospitaluiipcore.visit.service.impl.DefaultVisitService">
+		<property name="visitDao" ref="visitDao"></property>
+	</bean>
+	<!-- Bean Visit Interceptor________________________________________ -->
+	<bean id="myVisitPrepareInterceptor"
+		class="my.hospitaluiipcore.visit.interceptor.VisitPrepareInterceptor">
+	</bean>
+	<!-- Mapping Stage Interceptor -->
+	<bean id="myVisitPrepareMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="myVisitPrepareInterceptor"></property>
+		<property name="typeCode" value="Visit"></property>
+	</bean>
+	<!--Bean Event _____________________________________________________ -->
+	<bean id="visitListener" class="my.hospitaluiipcore.event.VisitEventListener"
+		autowire="byName"></bean>
+	<!-- Bean Cron Job _________________________________________________- -->
+	<bean id="visitJob" class="my.hospitaluiipcore.jobs.VisitJob"
+		parent="abstractJobPerformable">
+	<property name="visitService" ref="visitService"/>
+	</bean>
+
+
+	<bean id="hospitaluiipcoreSystemSetup" class="my.hospitaluiipcore.setup.HospitaluiipcoreSystemSetup">
+		<!-- constructor arg injection example -->
+		<constructor-arg ref="hospitaluiipcoreService" />
+	</bean>
+
+	<bean id="hospitaluiipcoreService"
+		class="my.hospitaluiipcore.service.impl.DefaultHospitaluiipcoreService">
+		<!-- setter injection example -->
+		<property name="modelService" ref="modelService" />
+		<property name="mediaService" ref="mediaService" />
+		<property name="flexibleSearchService" ref="flexibleSearchService" />
+	</bean>
+
+</beans>
