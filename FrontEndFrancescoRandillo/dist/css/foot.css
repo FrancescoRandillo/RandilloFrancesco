@@ -1,0 +1,15 @@
+.panel-footer {
+  font-size: 16px;
+  color: white;
+  height: 20%;
+  background-color: #ff9900;
+  border-radius: 4%;
+  margin-top: 2%;
+}
+.panel-footer .foot-right {
+  text-align: right;
+  padding-right: 10%;
+}
+.panel-footer .fa {
+  font-size: 24px;
+}

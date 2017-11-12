@@ -1,0 +1,39 @@
+@h:10%;
+@t:@h*2;
+.navbar{
+  font-size: 18px;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  height: @h;
+  position: sticky;
+  top: @h;
+  img{
+    height:50px;
+    width: auto;
+  }
+  button{
+      margin: 0%;
+      padding: 0%;
+  }
+
+
+}
+@color-uni:rgb(255, 153, 0);
+#left-div{
+  position: sticky;
+  top: @t;
+  left: 0;
+  height: 40%;
+  background-color: white;
+  margin: 0%;
+  a{
+    border:1px solid @color-uni;
+  }
+  .list-group{
+    margin-bottom: 0;
+  }
+}
+.disabled{
+  background-color: @color-uni;
+}

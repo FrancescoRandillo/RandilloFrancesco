@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Unieuro uiip
+  </title>
+  <meta name="unieuro" content="questa è una pagina di esercitazione basata sul sito unieuro"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dist/css/nav.css">
+  <link rel="stylesheet" href="dist/css/header.css">
+  <link rel="stylesheet" href="dist/css/foot.css">
+  <link rel="stylesheet" href="dist/css/container.css">
+  <link rel="stylesheet" href="dist/css/modal.css">
+</head>
+<body>
+
+
+<header class="page-header panel-header">
+  <div class="row">
+      <div class="col-lg-11">
+          <img src="dist/img/logo-unieuro.png">
+      </div>
+  </div>
+</header>
+
+
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="collapse" href="#left-side">
+          <span class="fa fa-list-ul">
+          </span>
+        <span class="caret"></span></a>
+
+      </li>
+      <li><img src="dist/img/logo.png"></li>
+      <li ><a href="HomePage.html">Home Page</a></li>
+      <li ><a href="ChiSiamo.html">Chi siamo</a></li>
+      <li class="active"><a href="#">I nostri lavori</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li data-toggle="modal" data-target="#myModalCart"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li data-toggle="modal" data-target="#myModalSignUp"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li data-toggle="modal" data-target="#myModalLogin"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="row" >
+  <div id="left-div" class="col-lg-3">
+  <div id="left-side" class="panel-collapse collapse">
+      <div class="list-group">
+          <a href="#" class="list-group-item-action list-group-item disabled">Seleziona la categoria</a>
+          <a href="#" class="list-group-item-action list-group-item">SMARTPHONE</a>
+          <a href="#" class="list-group-item-action list-group-item">NOTEBOOK</a>
+          <a href="#" class="list-group-item-action list-group-item">PC-DESKTOP</a>
+          <a href="#" class="list-group-item-action list-group-item">TV, DVD e HOME CINEMA</a>
+          <a href="#" class="list-group-item-action list-group-item">AUDIO E HI FI</a>
+          <a href="#" class="list-group-item-action list-group-item">FOTOCAMERE E VIDECAMERE</a>
+          <a href="#" class="list-group-item-action list-group-item">ELETTRODOMESTICI</a>
+          <a href="#" class="list-group-item-action list-group-item">CONSOLE E VIDEOGIOCHI</a>
+
+      </div>
+  </div>
+</div>
+
+
+<!--Container-->
+<!-- List group -->
+<div class="col-lg-8">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="list-group" id="myList" role="tablist">
+            <a class="job list-group-item list-group-item-action " data-toggle="list" href="#" role="button">Arena</a>
+            <a class="job list-group-item list-group-item-action" data-toggle="list" href="#" role="button">Lavora con noi</a>
+            <a class="job list-group-item list-group-item-action" data-toggle="list" href="#" role="button">NoCyberbullismo</a>
+            <a class="job list-group-item list-group-item-action" data-toggle="list" href="#" role="button">Lavoro 4</a>
+            <a class="job list-group-item list-group-item-action" data-toggle="list" href="#" role="button">Lavoro 5</a>
+          </div>
+      </div>
+      <div class="col-lg-8">
+        <p id="descriptionjob">
+        </p>
+      </div>
+      </div>
+  </div>
+
+<!--./Container-->
+  </div>
+
+<!--./Row (principale che contiene menu laterale e container)-->
+</div>
+<!--Footer-->
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-lg-4">
+          <div clas="row">
+              <div class="col-lg-12">
+                  Iscriviti alla news-letter
+              </div>
+              <div class="col-lg-12">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input  type="text" class="form-control" name="email" placeholder="Email">
+                </div></br>
+                <button type="button" class="btn btn-primary">Iscriviti</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-lg-12 foot-right">Seguici sui social
+            </div>
+            <div class="col-lg-12">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a  target="_blank" href="https://www.facebook.com/unieuro/"><span class="fa fa-facebook-square"></span></a></li>
+                <li><a  target="_blank" href="https://twitter.com/unieuronews"><span class="fa fa-twitter"></span></a></li>
+                <li><a  target="_blank" href="https://plus.google.com/117652064369898827387"><span class="fa fa-google-plus"></span></a></li>
+                <li><a  target="_blank" href="https://www.youtube.com/user/UniEuroChannel"><span class="fa fa-youtube"></span></a></li>
+                <li><a  target="_blank" href="https://www.instagram.com/unieuro/"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+    </footer>
+<!--./Footer-->
+
+    <!--Modal Login -->
+    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+              <div class="form-group">
+    							<label class="cols-sm-2">Your User Name</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+    									<input type="text" class="form-control" placeholder="Enter your Name"/>
+    								</div>
+    							</div>
+    					</div>
+              <div class="form-group">
+                  <label class="cols-sm-2 ">Your Password</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" placeholder="Enter your Password"/>
+                    </div>
+                  </div>
+              </div>
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+          </div>
+        </div>
+    </div>
+    <!-- ./Modal login-->
+
+    <!--Modal Sign in-->
+    <div class="modal fade" id="myModalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Sign Up</h1><br>
+            <form>
+              <div class="form-group">
+    							<label class="cols-sm-2">Your User Name</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+    									<input type="text" class="form-control" placeholder="Enter your Name"/>
+    								</div>
+    							</div>
+    						</div>
+                <div class="form-group">
+                    <label class="cols-sm-2">Your E-Mail</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter your Email"/>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="cols-sm-2 ">Your Password</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" placeholder="Enter your Password"/>
+                      </div>
+                    </div>
+                </div>
+              <div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+    									<input type="password" class="form-control"  placeholder="Confirm your Password"/>
+    								</div>
+    							</div>
+						</div>
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+          </div>
+        </div>
+    </div>
+
+    <!--./Modal Sign in-->
+
+    <!--Modal Cart-->
+    <div class="modal fade" id="myModalCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Procedi con l'acquisto</h1><br>
+            <div>
+              <ul class="myListCart list-group">
+              </ul>
+            </div>
+            <label class="totPrice"></label><br>
+            <button id="delete" class="btn btn-primary">Rimuovi gli articoli</button>
+            <button id="confirm" class="btn btn-primary">Completa l'ordine</button>
+          </div>
+        </div>
+    </div>
+
+    <!--./Modal Cart-->
+
+
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="dist/js/carusel.js"></script>
+<script src="dist/js/nav.js"></script>
+<script src="dist/js/list.js"></script>
+</body>
+</html>

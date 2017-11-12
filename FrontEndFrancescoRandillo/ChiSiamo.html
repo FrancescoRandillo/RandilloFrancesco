@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Unieuro uiip
+  </title>
+  <meta name="unieuro" content="questa è una pagina di esercitazione basata sul sito unieuro"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dist/css/nav.css">
+  <link rel="stylesheet" href="dist/css/header.css">
+  <link rel="stylesheet" href="dist/css/foot.css">
+  <link rel="stylesheet" href="dist/css/container.css">
+  <link rel="stylesheet" href="dist/css/modal.css">
+</head>
+<body>
+
+
+<header class="page-header panel-header">
+  <div class="row">
+      <div class="col-lg-11">
+          <img src="dist/img/logo-unieuro.png">
+      </div>
+  </div>
+</header>
+
+
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="collapse" href="#left-side">
+          <span class="fa fa-list-ul">
+          </span>
+        <span class="caret"></span></a>
+
+      </li>
+      <li><img src="dist/img/logo.png"></li>
+      <li ><a href="HomePage.html">Home Page</a></li>
+      <li class="active"><a href="#">Chi siamo</a></li>
+      <li><a href="INostriLavori.html">I nostri lavori</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li data-toggle="modal" data-target="#myModalCart"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li data-toggle="modal" data-target="#myModalSignUp"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li data-toggle="modal" data-target="#myModalLogin"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="row" >
+  <div id="left-div" class="col-lg-3">
+  <div id="left-side" class="panel-collapse collapse">
+      <div class="list-group">
+          <a href="#" class="list-group-item-action list-group-item disabled">Seleziona la categoria</a>
+          <a href="#" class="list-group-item-action list-group-item">SMARTPHONE</a>
+          <a href="#" class="list-group-item-action list-group-item">NOTEBOOK</a>
+          <a href="#" class="list-group-item-action list-group-item">PC-DESKTOP</a>
+          <a href="#" class="list-group-item-action list-group-item">TV, DVD e HOME CINEMA</a>
+          <a href="#" class="list-group-item-action list-group-item">AUDIO E HI FI</a>
+          <a href="#" class="list-group-item-action list-group-item">FOTOCAMERE E VIDECAMERE</a>
+          <a href="#" class="list-group-item-action list-group-item">ELETTRODOMESTICI</a>
+          <a href="#" class="list-group-item-action list-group-item">CONSOLE E VIDEOGIOCHI</a>
+
+      </div>
+  </div>
+</div>
+
+
+<!--Container-->
+  <div class="col-lg-8">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+              <h1 class="text-center">Chi siamo</h1>
+          </div>
+          <div class="col-lg-8">
+            <p class="lead">Unieuro S.p.A.
+Quotata sul segmento STAR di Borsa Italiana, Unieuro è oggi il maggiore distributore omnicanale di elettronica di consumo ed elettrodomestici in Italia, grazie a una rete capillare di 479 negozi su tutto il territorio nazionale tra diretti (203) ed affiliati (276), alla piattaforma digitale unieuro.it e all’e-tailer Monclick. L’azienda ha sede a Forlì e dispone di un centro logistico accentrato a Piacenza, conta su uno staff di oltre 4.300 dipendenti e ricavi che, per l’esercizio conclusosi il 28 febbraio 2017, hanno superato quota 1,6 miliardi di euro.</p>
+          </div>
+          <div class="col-lg-8">
+          <div id="myCarouselUnieuro" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+
+                <div class="item active">
+                  <img src="dist/img/chiSiamo/stand.jpg" alt="">
+                  <div class="carousel-caption">
+                    <h3>Stand Unieuro</h3>
+                    <p>Stand Unieuro alla games week di Milano</p>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <img src="dist/img/chiSiamo/unieuro-trento.jpg" alt="" >
+                  <div class="carousel-caption">
+                    <h3>Unieuro Trento</h3>
+                    <p>Negozio Unieuro a Mezzolombardo (TN)</p>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <img src="dist/img/chiSiamo/arena.jpg" alt="" >
+                  <div class="carousel-caption">
+                    <h3>Unieuro arena</h3>
+                    <p>Unieuro Arena è una struttura polifunzionale situata a Forlì. Progettato per contenere fino a 6.000 posti a sedere è dotato di un’ottima acustica e grazie alla sua estrema flessibilità, offre un impianto scenografico adatto ad ospitare importanti eventi culturali e d’intrattenimento.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarouselUnieuro" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarouselUnieuro" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+          </div>
+        </div>
+
+        </div>
+
+    </div>
+
+<!--./Container-->
+  </div>
+
+<!--./Row (principale che contiene menu laterale e container)-->
+</div>
+<!--Footer-->
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-lg-4">
+          <div clas="row">
+              <div class="col-lg-12">
+                  Iscriviti alla news-letter
+              </div>
+              <div class="col-lg-12">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input  type="text" class="form-control" name="email" placeholder="Email">
+                </div></br>
+                <button type="button" class="btn btn-primary">Iscriviti</button>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-lg-12 foot-right">Seguici sui social
+            </div>
+            <div class="col-lg-12">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a  target="_blank" href="https://www.facebook.com/unieuro/"><span class="fa fa-facebook-square"></span></a></li>
+                <li><a  target="_blank" href="https://twitter.com/unieuronews"><span class="fa fa-twitter"></span></a></li>
+                <li><a  target="_blank" href="https://plus.google.com/117652064369898827387"><span class="fa fa-google-plus"></span></a></li>
+                <li><a  target="_blank" href="https://www.youtube.com/user/UniEuroChannel"><span class="fa fa-youtube"></span></a></li>
+                <li><a  target="_blank" href="https://www.instagram.com/unieuro/"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+    </footer>
+<!--./Footer-->
+
+    <!--Modal Login -->
+    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+              <div class="form-group">
+    							<label class="cols-sm-2">Your User Name</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+    									<input type="text" class="form-control" placeholder="Enter your Name"/>
+    								</div>
+    							</div>
+    					</div>
+              <div class="form-group">
+                  <label class="cols-sm-2 ">Your Password</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" placeholder="Enter your Password"/>
+                    </div>
+                  </div>
+              </div>
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+          </div>
+        </div>
+    </div>
+    <!-- ./Modal login-->
+
+    <!--Modal Sign in-->
+    <div class="modal fade" id="myModalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Sign Up</h1><br>
+            <form>
+              <div class="form-group">
+    							<label class="cols-sm-2">Your User Name</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+    									<input type="text" class="form-control" placeholder="Enter your Name"/>
+    								</div>
+    							</div>
+    						</div>
+                <div class="form-group">
+                    <label class="cols-sm-2">Your E-Mail</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter your Email"/>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="cols-sm-2 ">Your Password</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" placeholder="Enter your Password"/>
+                      </div>
+                    </div>
+                </div>
+              <div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+    							<div class="cols-sm-10">
+    								<div class="input-group">
+    									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+    									<input type="password" class="form-control"  placeholder="Confirm your Password"/>
+    								</div>
+    							</div>
+						</div>
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+          </div>
+        </div>
+    </div>
+
+    <!--./Modal Sign in-->
+
+    <!--Modal Cart-->
+    <div class="modal fade" id="myModalCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Procedi con l'acquisto</h1><br>
+            <div>
+              <ul class="myListCart list-group">
+              </ul>
+            </div>
+            <label class="totPrice"></label><br>
+            <button id="delete" class="btn btn-primary">Rimuovi gli articoli</button>
+            <button id="confirm" class="btn btn-primary">Completa l'ordine</button>
+          </div>
+        </div>
+    </div>
+
+    <!--./Modal Cart-->
+
+
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="dist/js/carusel.js"></script>
+<script src="dist/js/nav.js"></script>
+</body>
+</html>
